@@ -15,14 +15,14 @@ public class Validator {
     }
 
     private void validateCarCount(List<String> carNames) {
-        if (carNames.size() < Car.CAR_LIST_MIN_COUNT || carNames.size() > Car.CAR_LIST_MAX_COUNT) {
+        if (carNames.size() < Car.MIN_CAR_LIST_SIZE || carNames.size() > Car.MAX_CAR_LIST_SIZE) {
             throw new IllegalArgumentException("[ERROR] 자동차 이름은 2개 이상 20개 미만으로 입력해주세요.");
         }
     }
 
     private void validateCarNameLength(List<String> carNames) {
         for (String carName : carNames) {
-            if (carName.length() == 0 || carName.length() > Car.CAR_NAME_MAX_LENGTH) {
+            if (carName.length() == 0 || carName.length() > Car.MAX_CAR_NAME_LENGTH) {
                 throw new IllegalArgumentException("[ERROR] 자동차 이름은 최대 5자까지 입력 가능합니다.");
             }
         }
@@ -37,7 +37,7 @@ public class Validator {
     }
 
     public void validateRacingRoundRange(int racingRound) {
-        if (racingRound < Car.RACING_ROUND_MIN || racingRound > Car.RACING_ROUND_MAX) {
+        if (racingRound < Car.MIN_RACING_ROUND || racingRound > Car.MAX_RACING_ROUND) {
             throw new IllegalArgumentException("[ERROR] 1 이상 100 이하로 입력해주세요.");
         }
     }
