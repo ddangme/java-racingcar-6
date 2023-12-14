@@ -20,4 +20,12 @@ public class ParseUtil {
 
         return cars;
     }
+
+    public static int stringToInt(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 숫자로 입력해주세요.");
+        }
+    }
 }

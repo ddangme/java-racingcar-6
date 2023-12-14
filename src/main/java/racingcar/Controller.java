@@ -16,9 +16,10 @@ public class Controller {
 
     public void gameStart() {
         setCars();
+        setRacingRound();
     }
 
-    public void setCars() {
+    private void setCars() {
         while (true) {
             try {
                 String inputCarNames = inputService.inputCarNames();
@@ -33,4 +34,21 @@ public class Controller {
             }
         }
     }
+
+    private void setRacingRound() {
+        while (true) {
+            try {
+                String inputRacingRound = inputService.inputRacingRound();
+                int racingRound = ParseUtil.stringToInt(inputRacingRound);
+                validator.validateRacingRoundRange(racingRound);
+
+                racingService.setRacingRound(racingRound);
+                return;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+
 }

@@ -36,4 +36,10 @@ public class Validator {
         }
     }
 
+    public void validateRacingRoundRange(int racingRound) {
+        if (racingRound < Car.RACING_ROUND_MIN || racingRound > Car.RACING_ROUND_MAX) {
+            throw new IllegalArgumentException("[ERROR] 1 이상 100 이하로 입력해주세요.");
+        }
+    }
+
 }
